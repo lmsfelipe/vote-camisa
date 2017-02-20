@@ -6,7 +6,7 @@ class ShirtItem extends Component {
 	render() {
 		return (
 			<div className="ShirtItem">
-				{this.props.team !== null ? <NameShirt name={this.props.team} /> : null}
+				{this.props.team !== undefined && <NameShirt name={this.props.team} />}
 				<img src={require(`./images/${this.props.slug}-${this.props.shirt}.jpg`)} alt="Camisa" />
 			</div>
 		)
