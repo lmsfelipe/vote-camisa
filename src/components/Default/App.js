@@ -15,14 +15,13 @@ class App extends Component {
         </div>
 
         <ShirtItem
-          team="São Paulo"
-          shirt={1}
+          shirt={2}
           slug="sp"
         />
 
         <ShirtItem
           team="Santos"
-          shirt={2}
+          shirt={1}
           slug="st"
         />
 

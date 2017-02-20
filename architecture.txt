@@ -1,0 +1,23 @@
+- src
+-- components
+---- Shirt
+------ ShirtItem
+------ ShirtList
+---- Team
+------ TeamItem
+------ TeamList
+---- Ranking
+------ RankingItem
+------ RankingList
+---- Filter
+------ FilterItem(general, teams, brand)
+-- views
+---- Home
+---- Intro
+---- Ranking
+------ Ranking(general)
+---- TeamSelection
+------ Ranking(team)
+---- ShirtSelection
+---- ShirtDetail
+---- Vote
