@@ -6,7 +6,7 @@ class ShirtItem extends Component {
 		return (
 			<div className="ShirtItem">
 				<p>{this.props.team}</p>
-				<img src={require('./images/'+this.props.slug+'-'+this.props.shirt+'.jpg')} alt="Camisa" />
+				<img src={require(`./images/${this.props.slug}-${this.props.shirt}.jpg`)} alt="Camisa" />
 			</div>
 		)
 	}
