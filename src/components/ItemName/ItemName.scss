@@ -1,13 +1,9 @@
-.NameShirt {
+.ItemName {
 	display: block;
-	width: 280px;
+	width: auto;
 	margin: 0 auto;
 
 	p {
 		text-transform: uppercase
-	}
-
-	img {
-		width: 100%;
 	}
 }
