@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
-import ShirtItem from './../Shirt/ShirtItem/ShirtItem';
-import TeamItem from './../Team/TeamItem/TeamItem';
+import Header from './../Header/Header';
+import TeamList from './../Team/TeamList/TeamList'  
 
 import './App.scss';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <Header />
+        <TeamList />
+
 
         {/*       
         <TeamItem
@@ -26,5 +30,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

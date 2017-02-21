@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ShirtItem.scss';
 import ItemName from './../../ItemName/ItemName'
 
-class ShirtItem extends Component {
+export default class ShirtItem extends Component {
 	render() {
 		return (
 			<div className="ShirtItem">
@@ -12,5 +12,3 @@ class ShirtItem extends Component {
 		)
 	}
 }
-
-export default ShirtItem;

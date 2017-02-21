@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ItemName.scss';
 
-class ItemName extends Component {
+export default class ItemName extends Component {
 	render() {
 		return (
 			<div className="ItemName">
@@ -10,5 +10,3 @@ class ItemName extends Component {
 		)
 	}
 }
-
-export default ItemName;

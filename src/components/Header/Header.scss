@@ -1,0 +1,23 @@
+.Header{
+	width: 100%;
+	height: 400px;
+	background-color: #dadada;
+}
+.Header__content{
+	width: 630px;
+	position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-left: -315px;
+	h1{
+	    font-family: 'Bahiana', cursive;
+	    color: #239673;
+	    font-size: 6em;
+	    margin-bottom: 0px;
+	}
+	p{
+	    text-transform: uppercase;
+	    font-size: 0.8em;
+	    color: #5d5d5d;
+	}
+}
