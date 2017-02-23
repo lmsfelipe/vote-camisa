@@ -7,20 +7,18 @@ export default class TeamList extends Component{
 	render(){
 		return(
 			<div className="TeamList">
-				<div className="TeamList__content">
-					<TeamItem
-			          teamLogo="santos"
-			        />
-			        <TeamItem
-			          teamLogo="spfc"
-			        />
-			        <TeamItem
-			          teamLogo="corinthians"
-			        />
-			        <TeamItem
-			          teamLogo="palmeiras"
-			        />
-		        </div>
+				<TeamItem
+		          teamLogo="santos"
+		        />
+		        <TeamItem
+		          teamLogo="spfc"
+		        />
+		        <TeamItem
+		          teamLogo="corinthians"
+		        />
+		        <TeamItem
+		          teamLogo="palmeiras"
+		        />
 			</div>
 		)
 	}

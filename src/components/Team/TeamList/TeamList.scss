@@ -1,12 +1,14 @@
+@import '../../../sass/main';
+
 .TeamList{
     width: 700px;
     margin: -85px auto 0;
-    background-color: #ffffff;
-    padding: 30px;
-    box-shadow: 6px 8px 0px 0px rgba(0, 0, 0, 0.24);
+    flex-flow: row wrap;
+	@include flex-box;
+    @include box-default;
 }
-.TeamList__content:after{
-	content: "";
-	display: table;
-	clear: both;
-}
+// .TeamList__content:after{
+// 	content: "";
+// 	display: table;
+// 	clear: both;
+// }

@@ -1,3 +1,5 @@
+@import '../../sass/main';
+
 .Header{
 	width: 100%;
 	height: 400px;
@@ -8,8 +10,8 @@
 	margin: 0 auto;
     padding-top: 80px;
 	h1{
-	    font-family: 'Bahiana', cursive;
-	    color: #239673;
+	    font-family: $display-font;
+	    color: $primary-color;
 	    font-size: 6em;
 	    margin: 0;
 	}

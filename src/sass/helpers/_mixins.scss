@@ -1,0 +1,14 @@
+@mixin box-default() {
+  	background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 6px 8px 0px 0px rgba(0, 0, 0, 0.24);
+}
+
+@mixin flex-box{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
