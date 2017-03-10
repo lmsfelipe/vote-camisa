@@ -1,7 +1,7 @@
 @import '../../../sass/main';
 
 .TeamList{
-    width: 700px;
+    width: 55%;
     margin: -85px auto 0;
     flex-flow: row wrap;
 	@include flex-box;
