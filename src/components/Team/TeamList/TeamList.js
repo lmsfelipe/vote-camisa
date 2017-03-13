@@ -8,21 +8,21 @@ export default class TeamList extends Component{
 		return(
 			<div className="TeamList">
 				<TeamItem
-        	teamLogo="santos"
-					slug="st"
-        />
-	      <TeamItem
-	        teamLogo="spfc"
-					slug="sp"
-	      />
-	      <TeamItem
-	        teamLogo="corinthians"
-					slug="ct"
-	      />
-	      <TeamItem
-	        teamLogo="palmeiras"
-					slug="pm"
-	      />
+        			teamLogo="santos"
+					slug="santos"
+        		/>
+				<TeamItem
+					teamLogo="spfc"
+					slug="saopaulo"
+				/>
+				<TeamItem
+					teamLogo="corinthians"
+					slug="corinthians"
+				/>
+				<TeamItem
+					teamLogo="palmeiras"
+					slug="palmeiras"
+				/>
 			</div>
 		)
 	}
