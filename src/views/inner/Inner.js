@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
 
-import data from './../../json/teams';
+import data from './../../json/teamsInfos';
 
 export default class InnerView extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			id: props.routeParams.id,
-		}
-	}
-
-	render() {
-		const { id } = this.state;
-
-		console.log(id, data);
-
-		return (
-			<div className="InnerView">
-				<p>Interna {id}</p>
-			</div>
-		)
-	}
+  render() {
+  	const {id} = this.props.params;
+    return (
+      <div className="InnerView">
+        <h2>{data[id].name}</h2>
+      </div>
+    )
+  }2
 }
