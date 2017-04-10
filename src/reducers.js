@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import { ADD_TEAM } from './actions/action';
 
-teams(state = [], action) => {
+const initialState = []
+
+function teams(state = initialState, action) {
 	switch (action.type) {
 		case ADD_TEAM:
 			return [
@@ -13,8 +15,10 @@ teams(state = [], action) => {
 		default:
 			return state
 	}
-}
+};
 
-export default teamApp = combineReducers({
+const teamApp = combineReducers({
 	teams,
 });
+
+export default teamApp;
