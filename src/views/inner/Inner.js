@@ -10,5 +10,5 @@ export default class InnerView extends Component {
         <h2>{data[id].name}</h2>
       </div>
     )
-  }2
+  }
 }
