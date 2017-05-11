@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import TeamItem from './../TeamItem/TeamItem'
+import TeamItem from './../TeamItem/TeamItem';
 import './TeamList.scss';
+import teamsData from './../../../json/teams';
+
+console.log(teamsData);
 
 
 export default class TeamList extends Component{
@@ -8,21 +11,13 @@ export default class TeamList extends Component{
 		return(
 			<div className="TeamList">
 				<TeamItem
-	    			teamLogo="santos"
-					slug="santos"
+	    			teamLogo={teamsData.santos.teamImage}
+					slug={teamsData.santos.slug}
         		/>
-				<TeamItem
-					teamLogo="spfc"
-					slug="saopaulo"
-				/>
-				<TeamItem
-					teamLogo="corinthians"
-					slug="corinthians"
-				/>
-				<TeamItem
-					teamLogo="palmeiras"
-					slug="palmeiras"
-				/>
+        		<TeamItem
+	    			teamLogo={teamsData.saoPaulo.teamImage}
+					slug={teamsData.saoPaulo.slug}
+        		/>
 			</div>
 		)
 	}

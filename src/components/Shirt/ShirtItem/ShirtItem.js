@@ -7,7 +7,7 @@ export default class ShirtItem extends Component {
 		return (
 			<div className="ShirtItem">
 				{this.props.shirtName !== undefined && <ItemName name={this.props.shirtName} />}
-				<img src={require(`./images/${this.props.slug}-${this.props.shirt}.jpg`)} alt="Camisa" />
+				<img src={require(`./images/${this.props.shirtImage}`)} alt="Camisa" />
 			</div>
 		)
 	}

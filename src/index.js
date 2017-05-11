@@ -18,6 +18,8 @@ store.dispatch(addTeam('Portuguesa'));
 store.dispatch(addTeam('Macaé'));
 store.dispatch(addTeam('Linense'));
 store.dispatch(addTeam('Ponte Preta'));
+store.dispatch(addTeam('Ibiz'));
+store.dispatch(addTeam('Juventus'));
 
 console.log('depois', store.getState());
 

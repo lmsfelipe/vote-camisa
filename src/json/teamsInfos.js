@@ -1,15 +1,18 @@
 export default{
 	santos: {
-		name: "Santos"
+		name: "Santos",
+		slug: "st"
 	},
 	saopaulo: {
-		name: "São Paulo"
-		
+		name: "São Paulo",
+		slug: "sp"	
 	},
 	corinthians: {
-		name: "Corinthians"
+		name: "Corinthians",
+		slug: "ct"
 	},
 	palmeiras: {
-		name: "Palmeiras"
+		name: "Palmeiras",
+		slug: "pl"
 	}
 }
