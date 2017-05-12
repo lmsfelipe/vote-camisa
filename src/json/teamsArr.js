@@ -1,5 +1,5 @@
-export default {
-	"santos": {
+export default [
+	{
 		"name": "Santos",
 		"slug": "santos",
 		"teamImage": "santos.png",
@@ -16,7 +16,7 @@ export default {
 			},
 		],
 	},
-	"saoPaulo": {
+	{
 		"name": "São Paulo",
 		"slug": "saoPaulo",
 		"teamImage": "spfc.png",
@@ -33,4 +33,4 @@ export default {
 			},
 		],
 	},
-};
+];
