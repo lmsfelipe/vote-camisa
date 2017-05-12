@@ -8,13 +8,15 @@ export default class TeamList extends Component{
 		return(
 			<div className="TeamList">
 				{
-					Object.entries(teamsData).map((value, index) =>
-						<TeamItem
-							key={index}
-					    teamLogo={value[1].teamImage}
-					    slug={value[1].slug}
-					  />
-					)
+					Object.entries(teamsData).map((value, index) => {
+						return(
+							<TeamItem
+								key={index}
+							    teamLogo={value[1].teamImage}
+							    slug={value[1].slug}
+						  	/>
+						)
+					})
 				}
 			</div>
 		)
