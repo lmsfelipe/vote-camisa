@@ -6,7 +6,11 @@ export default class ShirtItem extends Component {
 	render() {
 		return (
 			<div className="ShirtItem">
-				{this.props.shirtName !== undefined && <ItemName name={this.props.shirtName} />}
+				{
+					this.props.shirtName &&
+						<ItemName name={this.props.shirtName} />
+				}
+
 				<img src={require(`./images/${this.props.shirtImage}`)} alt="Camisa" />
 			</div>
 		)

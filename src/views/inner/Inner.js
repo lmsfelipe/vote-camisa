@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import teamsData from './../../json/teams';
 import ShirtItem from './../../components/Shirt/ShirtItem/ShirtItem';
+
+import './Inner.scss';
 
 export default class InnerView extends Component {
     render() {
@@ -11,13 +15,18 @@ export default class InnerView extends Component {
                 {
                     teamsData[id].shirts.map((item, index) => {
                         return(
-                            <ShirtItem
-                            key={index}
-                            shirtName={item.shirtName}
-                            shirtImage={item.shirtImage}
-                            />
+                            <Link
+                                key={index}
+                                className="InnerView__link"
+                                to={`/${teamsData[id].slug}/${item.slug}`}
+                            >
+                                <ShirtItem
+                                  shirtName={item.shirtName}
+                                  shirtImage={item.shirtImage}
+                                />
+                            </Link>
                         )
-                    })   
+                    })
                 }
             </div>
         )
