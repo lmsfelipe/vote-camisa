@@ -26,6 +26,13 @@ export default {
 		"teamImage": "spfc.png",
 		"shirts": [
 			{
+				"shirtYear": 2013,
+				"slug": "camisa-b-2013",
+				"shirtImage": "sp-2.jpg",
+				"shirtName": "Camisa B de 2013",
+				"info": "Some Info 2013",
+			},
+			{
 				"shirtYear": 2012,
 				"slug": "camisa-a-2012",
 				"shirtImage": "sp-1.jpg",
@@ -33,11 +40,11 @@ export default {
 				"info": "Some Info",
 			},
 			{
-				"shirtYear": 2013,
-				"slug": "camisa-b-2013",
+				"shirtYear": 1996,
+				"slug": "camisa-a-1996",
 				"shirtImage": "sp-2.jpg",
-				"shirtName": "Camisa B de 2013",
-				"info": "Some Info 2013",
+				"shirtName": "Camisa A de 1996",
+				"info": "Some Info",
 			},
 		],
 	},
