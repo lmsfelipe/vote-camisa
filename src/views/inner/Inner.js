@@ -7,16 +7,16 @@ import ShirtItem from './../../components/Shirt/ShirtItem/ShirtItem';
 import './Inner.scss';
 
 export default class InnerView extends Component {
-    constructor(props) {
-      super(props);
+  constructor(props) {
+    super(props);
 
-      this.state = {
-        id: props.params.id,
-        shirts: [],
-      };
+    this.state = {
+      id: props.params.id,
+      shirts: [],
+    };
 
-      this.sortByYear = this.sortByYear.bind(this);
-    }
+    this.sortByYear = this.sortByYear.bind(this);
+  }
 
     sortByYear(year1, year2) {
       if (year1.shirtYear > year2.shirtYear) {
@@ -35,26 +35,26 @@ export default class InnerView extends Component {
     }
 
     render() {
-        return (
-            <div className="InnerView">
-                <h2>{teamsData[this.state.id].name}</h2>
-                {
-                    this.state.shirts.map((item, index) => {
-                        return(
-                            <Link
-                                key={index}
-                                className="InnerView__link"
-                                to={`/${teamsData[this.state.id].slug}/${item.slug}`}
-                            >
-                                <ShirtItem
-                                  shirtName={item.shirtName}
-                                  shirtImage={item.shirtImage}
-                                />
-                            </Link>
-                        )
-                    })
-                }
-            </div>
-        )
-    }
+      return (
+        <div className="InnerView">
+          <h2>{teamsData[this.state.id].name}</h2>
+          {
+            this.state.shirts.map((item, index) => {
+              return(
+                <Link
+                  key={index}
+                  className="InnerView__link"
+                  to={`/${teamsData[this.state.id].slug}/${item.slug}`}
+                >
+                  <ShirtItem
+                    shirtName={item.shirtName}
+                    shirtImage={item.shirtImage}
+                  />
+                </Link>
+              )
+            })
+          }
+      </div>
+    )
+  }
 }

@@ -19,22 +19,22 @@ export default class ShirtInnerView extends Component {
       return shirt.slug === this.state.slug;
     }
 
-    render() {
-        return (
-            <div className="ShirtInnerView">
-                {
-                  teamsData[this.state.id].shirts.filter(this.filterShirt).map((item, i) =>
-                    <div key={i} className="ShirtInnerView__info">
-                      <ShirtItem
-                        shirtName={item.shirtName}
-                        shirtImage={item.shirtImage}
-                      />
+  render() {
+    return (
+      <div className="ShirtInnerView">
+        {
+          teamsData[this.state.id].shirts.filter(this.filterShirt).map((item, i) =>
+            <div key={i} className="ShirtInnerView__info">
+              <ShirtItem
+                shirtName={item.shirtName}
+                shirtImage={item.shirtImage}
+              />
 
-                      <p>{item.info}</p>
-                    </div>
-                  )
-                }
+              <p>{item.info}</p>
             </div>
-        )
-    }
+          )
+        }
+      </div>
+    )
+  }
 }
