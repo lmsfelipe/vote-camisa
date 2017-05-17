@@ -7,7 +7,7 @@ export default class TeamItem extends Component {
 	render() {
 		return (
 			<div className="TeamItem">
-				<Link to={`/inner/${this.props.slug}`}>
+				<Link to={`/${this.props.slug}`}>
 					<img src={require(`./images/${this.props.teamLogo}`)} alt="Time" />
 				</Link>
 			</div>

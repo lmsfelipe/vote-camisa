@@ -1,25 +1,60 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import teamsData from './../../json/teams';
 import ShirtItem from './../../components/Shirt/ShirtItem/ShirtItem';
 
+import './Inner.scss';
+
 export default class InnerView extends Component {
-    render() {
-        const {id} = this.props.params;
-        return (
-            <div className="InnerView">
-                <h2>{teamsData[id].name}</h2>
-                {
-                    teamsData[id].shirts.map((item, index) => {
-                        return(
-                            <ShirtItem
-                            key={index}
-                            shirtName={item.shirtName}
-                            shirtImage={item.shirtImage}
-                            />
-                        )
-                    })   
-                }
-            </div>
-        )
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: props.params.id,
+      shirts: [],
+    };
+
+    this.sortByYear = this.sortByYear.bind(this);
+  }
+
+    sortByYear(year1, year2) {
+      if (year1.shirtYear > year2.shirtYear) {
+        return 1;
+      }
+      if (year1.shirtYear < year2.shirtYear) {
+        return -1;
+      }
+      return 0;
     }
+
+    componentDidMount() {
+      this.setState({
+        shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
+      });
+    }
+
+    render() {
+      return (
+        <div className="InnerView">
+          <h2>{teamsData[this.state.id].name}</h2>
+          {
+            this.state.shirts.map((item, index) => {
+              return(
+                <Link
+                  key={index}
+                  className="InnerView__link"
+                  to={`/${teamsData[this.state.id].slug}/${item.slug}`}
+                >
+                  <ShirtItem
+                    shirtName={item.shirtName}
+                    shirtImage={item.shirtImage}
+                  />
+                </Link>
+              )
+            })
+          }
+      </div>
+    )
+  }
 }

@@ -12,9 +12,9 @@ export default class TeamList extends Component{
 						return(
 							<TeamItem
 								key={index}
-							    teamLogo={value[1].teamImage}
-							    slug={value[1].slug}
-						  	/>
+						    teamLogo={value[1].teamImage}
+						    slug={value[1].slug}
+					  	/>
 						)
 					})
 				}
