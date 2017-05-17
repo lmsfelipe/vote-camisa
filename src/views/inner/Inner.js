@@ -19,19 +19,20 @@ export default class InnerView extends Component {
   }
 
     sortByYear(year1, year2) {
-      if (year1.shirtYear > year2.shirtYear) {
+      if (year1 > year2) {
         return 1;
       }
-      if (year1.shirtYear < year2.shirtYear) {
+      if (year1 < year2) {
         return -1;
       }
       return 0;
     }
 
     componentDidMount() {
-      this.setState({
-        shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
-      });
+      console.log(teamsData[this.state.id].shirts)
+      // this.setState({
+      //   shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
+      // });
     }
 
     render() {
