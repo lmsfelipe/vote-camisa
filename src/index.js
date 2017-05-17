@@ -12,16 +12,15 @@ import './index.scss';
 
 let store = createStore(teamApp);
 
-// console.log('antes', store.getState());
+console.log('antes', store.getState());
 
 store.dispatch(addTeam('Portuguesa'));
 store.dispatch(addTeam('Macaé'));
 store.dispatch(addTeam('Linense'));
 store.dispatch(addTeam('Ponte Preta'));
 store.dispatch(addTeam('Ibiz'));
-store.dispatch(addTeam('Juventus'));
 
-// console.log('depois', store.getState());
+console.log('depois', store.getState());
 
 ReactDOM.render(
 	<Provider store={store}>
