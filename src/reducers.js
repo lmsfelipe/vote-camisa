@@ -1,19 +1,20 @@
 import { combineReducers } from 'redux';
-import { ADD_TEAM, REGISTER_VOTE } from './actions/action';
+import { ADD_TEAM, REGISTER_VOTE } from './actions/teamActions';
 
 const initialState = {
-  list: [],
+  votes: {},
+  listTeams: [],
 };
 
-function teams(state = initialState, action) {
+const teams = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_TEAM:
 			return Object.assign(
         {},
         state,
         {
-          list: [
-            ...state.list,
+          listTeams: [
+            ...state.listTeams,
             {
               team: action.text,
             },

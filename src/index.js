@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { addTeam } from './actions/action';
+import { addTeam } from './actions/teamActions';
 
 import Routes from './config/routes';
 import teamApp from './reducers.js';
