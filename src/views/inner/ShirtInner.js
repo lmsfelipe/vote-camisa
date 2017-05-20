@@ -3,21 +3,21 @@ import teamsData from './../../json/teams';
 import ShirtItem from './../../components/Shirt/ShirtItem/ShirtItem';
 
 export default class ShirtInnerView extends Component {
-    constructor(props) {
-      super(props);
-      const { id, slug } = props.params;
+  constructor(props) {
+    super(props);
+    const { id, slug } = props.params;
 
-      this.state = {
-        slug,
-        id,
-      };
+    this.state = {
+      slug,
+      id,
+    };
 
-      this.filterShirt = this.filterShirt.bind(this);
-    }
+    this.filterShirt = this.filterShirt.bind(this);
+  }
 
-    filterShirt(shirt) {
-      return shirt.slug === this.state.slug;
-    }
+  filterShirt(shirt) {
+    return shirt.slug === this.state.slug;
+  }
 
   render() {
     return (

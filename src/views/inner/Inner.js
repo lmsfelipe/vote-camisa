@@ -18,42 +18,42 @@ export default class InnerView extends Component {
     this.sortByYear = this.sortByYear.bind(this);
   }
 
-    sortByYear(year1, year2) {
-      if (year1.shirtYear > year2.shirtYear) {
-        return 1;
-      }
-      if (year1.shirtYear < year2.shirtYear) {
-        return -1;
-      }
-      return 0;
+  sortByYear(year1, year2) {
+    if (year1.shirtYear > year2.shirtYear) {
+      return 1;
     }
-
-    componentDidMount() {
-      this.setState({
-        shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
-      });
+    if (year1.shirtYear < year2.shirtYear) {
+      return -1;
     }
+    return 0;
+  }
 
-    render() {
-      return (
-        <div className="InnerView">
-          <h2>{teamsData[this.state.id].name}</h2>
-          {
-            this.state.shirts.map((item, index) => {
-              return(
-                <Link
-                  key={index}
-                  className="InnerView__link"
-                  to={`/${teamsData[this.state.id].slug}/${item.slug}`}
-                >
-                  <ShirtItem
-                    shirtName={item.shirtName}
-                    shirtImage={item.shirtImage}
-                  />
-                </Link>
-              )
-            })
-          }
+  componentDidMount() {
+    this.setState({
+      shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
+    });
+  }
+
+  render() {
+    return (
+      <div className="InnerView">
+        <h2>{teamsData[this.state.id].name}</h2>
+        {
+          this.state.shirts.map((item, index) => {
+            return(
+              <Link
+                key={index}
+                className="InnerView__link"
+                to={`/${teamsData[this.state.id].slug}/${item.slug}`}
+              >
+                <ShirtItem
+                  shirtName={item.shirtName}
+                  shirtImage={item.shirtImage}
+                />
+              </Link>
+            )
+          })
+        }
       </div>
     )
   }
