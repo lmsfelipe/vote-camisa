@@ -5,7 +5,7 @@ import { createHistory } from 'history';
 import ApplicationLayout from './../views/layouts/Application';
 import HomeView from './../views/home/Home';
 import InnerView from './../views/inner/Inner';
-import ShirtInnerView from './../views/inner/ShirtInner';
+import ShirtInnerView from './../views/inner/ShirtInnerView';
 
 const history = useRouterHistory(createHistory)({
   basename: '/',

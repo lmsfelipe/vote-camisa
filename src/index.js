@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { addTeam } from './actions/teamActions';
 
 import Routes from './config/routes';
-import teamApp from './reducers.js';
+import teamApp from './reducers/';
 
 import './index.scss';
 

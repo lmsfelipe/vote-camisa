@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import teamsData from './../../json/teams';
-import ShirtItem from './../../components/Shirt/ShirtItem/ShirtItem';
+import teamsData from './../../../json/teams';
+import ShirtItem from './../ShirtItem/ShirtItem';
+import { Button } from 'react-bootstrap';
 
-export default class ShirtInnerView extends Component {
+export default class ShirtInner extends Component {
   constructor(props) {
     super(props);
     const { id, slug } = props.params;
@@ -21,16 +22,20 @@ export default class ShirtInnerView extends Component {
 
   render() {
     return (
-      <div className="ShirtInnerView">
+      <div className="ShirtInner">
         {
           teamsData[this.state.id].shirts.filter(this.filterShirt).map((item, i) =>
-            <div key={i} className="ShirtInnerView__info">
+            <div key={i} className="ShirtInner__info">
               <ShirtItem
                 shirtName={item.shirtName}
                 shirtImage={item.shirtImage}
               />
 
               <p>{item.info}</p>
+
+              <Button bsStyle="info" onClick={this.onClick}>
+                Votar nesta camisa
+              </Button>
             </div>
           )
         }

@@ -1,14 +1,13 @@
-export const ADD_TEAM = 'ADD_TEAM';
-export const REGISTER_VOTE = 'REGISTER_VOTE';
+import * as types from './../types/teamTypes';
 
-export function addTeam(text) {
+export const addTeam = text => {
 	return {
-		type: ADD_TEAM,
+		type: types.ADD_TEAM,
 		text,
 	}
-}
+};
 
 export const registerVote = vote => ({
-  type: REGISTER_VOTE,
+  type: types.REGISTER_VOTE,
   vote,
 });
