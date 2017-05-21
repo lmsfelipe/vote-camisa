@@ -25,8 +25,10 @@ export const teams = (state = initialState, action) => {
         {},
         state,
         {
-          ...state.votes,
-          vote: action.vote,
+          votes: {
+            ...state.votes,
+            vote: action.vote,
+          },
         },
       );
     default:
