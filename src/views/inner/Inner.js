@@ -12,13 +12,13 @@ export default class InnerView extends Component {
 
     this.state = {
       id: props.params.id,
-      shirts: [],
+      shirtYears: [],
     };
   }
 
   componentDidMount() {
     this.setState({
-      shirts: teamsData[this.state.id].shirts,
+      shirtYears: teamsData[this.state.id].shirtYears,
     });
   }
 
@@ -27,36 +27,19 @@ export default class InnerView extends Component {
       <div className="InnerView">
         <h2>{teamsData[this.state.id].name}</h2>
         {
-          Object.entries(this.state.shirts).map((value, index) => {
+          Object.entries(this.state.shirtYears).map((item, i) => {
             return(
               <Link
-                key={index}
+                key={i}
                 className="InnerView__link"
-                to={`/${teamsData[this.state.id].slug}/${value[1][0].slug}`}
+                to={`/${teamsData[this.state.id].slug}/${item[1].slug}`}
               >
                 <ShirtItem
-                  shirtName={value[1][0].shirtName}
-                  shirtImage={value[1][0].shirtImage}
+                  shirtName={item[1].shirtName}
+                  shirtImage={item[1].shirtImage}
                 />
               </Link>
             )
-            // return(
-            //   value[1].map((value, index) => {
-            //     // console.log(value)
-            //     return(
-            //       <Link
-            //         key={index}
-            //         className="InnerView__link"
-            //         to={`/${teamsData[this.state.id].slug}/${value.slug}`}
-            //       >
-            //         <ShirtItem
-            //           shirtName={value.shirtName}
-            //           shirtImage={value.shirtImage}
-            //         />
-            //       </Link>
-            //     )
-            //   })
-            // )
           })
         }
       </div>

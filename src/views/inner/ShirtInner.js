@@ -10,7 +10,7 @@ export default class ShirtInnerView extends Component {
     this.state = {
       slug,
       id,
-      shirts: [],
+      shirtYears: [],
     };
 
     this.filterShirt = this.filterShirt.bind(this);
@@ -22,7 +22,7 @@ export default class ShirtInnerView extends Component {
 
   componentDidMount(){
     this.setState({
-      shirts: teamsData[this.state.id].shirts[this.state.slug],
+      shirtYears: teamsData[this.state.id].shirtYears[this.state.slug].shirts,
     })
   }
 
@@ -30,35 +30,17 @@ export default class ShirtInnerView extends Component {
     return (
       <div className="ShirtInnerView">
         {
-          this.state.shirts.map((item, i) => {
-            if(i !== 0){
-              return (
-                <div key={i} className="ShirtInnerView__info">
-                  <ShirtItem
-                    shirtName={item.shirtName}
-                    shirtImage={item.shirtImage}
-                  />
-                  <p>{item.info}</p>
-                </div>
-              )
-            }
+          this.state.shirtYears.map((item, i) => {
+            return (
+              <div key={i} className="ShirtInnerView__info">
+                <ShirtItem
+                  shirtName={item.shirtName}
+                  shirtImage={item.shirtImage}
+                />
+                <p>{item.info}</p>
+              </div>
+            )
           })
-          // Object.entries(teamsData[this.state.id].shirts).map((value, index) => {
-          //   return(
-          //     value[1].filter(this.filterShirt).map((item, i) => {
-          //       return (
-          //         <div key={i} className="ShirtInnerView__info">
-          //           <ShirtItem
-          //             shirtName={item.shirtName}
-          //             shirtImage={item.shirtImage}
-          //           />
-          //           <p>{item.info}</p>
-          //           <button>Votar</button>
-          //         </div>
-          //       )
-          //     })
-          //   )
-          // })
         }
       </div>
     )
