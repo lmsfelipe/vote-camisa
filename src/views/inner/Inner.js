@@ -14,47 +14,52 @@ export default class InnerView extends Component {
       id: props.params.id,
       shirts: [],
     };
-
-    this.sortByYear = this.sortByYear.bind(this);
   }
 
-    sortByYear(year1, year2) {
-      if (year1 > year2) {
-        return 1;
-      }
-      if (year1 < year2) {
-        return -1;
-      }
-      return 0;
-    }
+  componentDidMount() {
+    this.setState({
+      shirts: teamsData[this.state.id].shirts,
+    });
+  }
 
-    componentDidMount() {
-      console.log(teamsData[this.state.id].shirts)
-      // this.setState({
-      //   shirts: teamsData[this.state.id].shirts.sort(this.sortByYear),
-      // });
-    }
-
-    render() {
-      return (
-        <div className="InnerView">
-          <h2>{teamsData[this.state.id].name}</h2>
-          {
-            this.state.shirts.map((item, index) => {
-              return(
-                <Link
-                  key={index}
-                  className="InnerView__link"
-                  to={`/${teamsData[this.state.id].slug}/${item.slug}`}
-                >
-                  <ShirtItem
-                    shirtName={item.shirtName}
-                    shirtImage={item.shirtImage}
-                  />
-                </Link>
-              )
-            })
-          }
+  render() {
+    return (
+      <div className="InnerView">
+        <h2>{teamsData[this.state.id].name}</h2>
+        {
+          Object.entries(this.state.shirts).map((value, index) => {
+            console.log(value[1][0])
+            return(
+              <Link
+                key={index}
+                className="InnerView__link"
+                to={`/${teamsData[this.state.id].slug}/${value[1][0].slug}`}
+              >
+                <ShirtItem
+                  shirtName={value[1][0].shirtName}
+                  shirtImage={value[1][0].shirtImage}
+                />
+              </Link>
+            )
+            // return(
+            //   value[1].map((value, index) => {
+            //     // console.log(value)
+            //     return(
+            //       <Link
+            //         key={index}
+            //         className="InnerView__link"
+            //         to={`/${teamsData[this.state.id].slug}/${value.slug}`}
+            //       >
+            //         <ShirtItem
+            //           shirtName={value.shirtName}
+            //           shirtImage={value.shirtImage}
+            //         />
+            //       </Link>
+            //     )
+            //   })
+            // )
+          })
+        }
       </div>
     )
   }
