@@ -28,7 +28,6 @@ export default class InnerView extends Component {
         <h2>{teamsData[this.state.id].name}</h2>
         {
           Object.entries(this.state.shirts).map((value, index) => {
-            console.log(value[1][0])
             return(
               <Link
                 key={index}
