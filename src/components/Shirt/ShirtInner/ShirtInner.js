@@ -9,8 +9,9 @@ export default class ShirtInner extends Component {
   }
 
   onClick(e) {
-    const vote = e.target.getAttribute('data-vote');
-    this.props.registerVote(vote);
+    const team = e.target.getAttribute('data-team');
+    const shirt = e.target.getAttribute('data-shirt');
+    this.props.registerVote(team, shirt);
   }
 
   render() {
@@ -26,7 +27,12 @@ export default class ShirtInner extends Component {
 
               <p>{item.info}</p>
 
-              <Button bsStyle="info" data-vote={item.slug} onClick={this.onClick}>
+              <Button
+                bsStyle="info"
+                data-team={this.props.id}
+                data-shirt={item.slug}
+                onClick={this.onClick}
+              >
                 Votar nesta camisa
               </Button>
             </div>

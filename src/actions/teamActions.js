@@ -1,5 +1,7 @@
 import * as types from './../types/teamTypes';
 
+let countVotes = 0;
+
 export const addTeam = text => {
 	return {
 		type: types.ADD_TEAM,
@@ -7,7 +9,9 @@ export const addTeam = text => {
 	}
 };
 
-export const registerVote = vote => ({
+export const registerVote = (team, shirt, vote) => ({
   type: types.REGISTER_VOTE,
-  vote,
+  team,
+  shirt,
+  vote: countVotes++,
 });

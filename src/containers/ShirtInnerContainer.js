@@ -11,27 +11,15 @@ class ShirtInnerContainer extends Component {
     const { id, slug } = props.params;
 
     this.state = {
-      teams: [],
-      slug,
+      teams: teamsData[id].shirtYears[slug].shirts,
       id,
     };
-
-    this.filterShirt = this.filterShirt.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      teams: teamsData[this.state.id].shirts.filter(this.filterShirt),
-    });
-  }
-
-  filterShirt(shirt) {
-    return shirt.slug === this.state.slug;
   }
 
   render() {
     return (
       <ShirtInner
+        id={this.state.id}
         params={this.props.params}
         teams={this.state.teams}
         registerVote={this.props.onClickVote}
@@ -46,8 +34,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onClickVote: (vote) => {
-    dispatch(registerVote(vote))
+  onClickVote: (team, shirt) => {
+    dispatch(registerVote(team, shirt))
   },
 });
 
