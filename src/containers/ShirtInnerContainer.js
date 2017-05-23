@@ -40,12 +40,12 @@ class ShirtInnerContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {}
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onClickVote: (vote) => {
     dispatch(registerVote(vote))
   },
