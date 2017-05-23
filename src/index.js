@@ -3,25 +3,24 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { addTeam } from './actions/action';
+import { addTeam } from './actions/teamActions';
 
 import Routes from './config/routes';
-import teamApp from './reducers.js';
+import teamApp from './reducers/';
 
 import './index.scss';
 
 let store = createStore(teamApp);
 
-// console.log('antes', store.getState());
+console.log('antes', store.getState());
 
 store.dispatch(addTeam('Portuguesa'));
 store.dispatch(addTeam('Macaé'));
 store.dispatch(addTeam('Linense'));
 store.dispatch(addTeam('Ponte Preta'));
 store.dispatch(addTeam('Ibiz'));
-store.dispatch(addTeam('Juventus'));
 
-// console.log('depois', store.getState());
+console.log('depois', store.getState());
 
 ReactDOM.render(
 	<Provider store={store}>
