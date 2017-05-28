@@ -29,7 +29,7 @@ class ShirtInnerContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log('container', state);
   return {}
 };
 

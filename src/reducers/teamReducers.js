@@ -2,7 +2,7 @@ import * as types from './../types/teamTypes';
 
 const initialState = {
   listTeams: [],
-  votes: [],
+  votes: {},
 };
 
 export const teams = (state = initialState, action) => {
@@ -17,15 +17,18 @@ export const teams = (state = initialState, action) => {
         ],
       });
     case types.REGISTER_VOTE:
+      // console.log('reducer', state, action);
       return Object.assign({}, state, {
-        votes: [
+        votes: {
           ...state.votes,
-          {
-            team: action.team,
-            shirt: action.shirt,
-            vote: action.vote,
-          },
-        ],
+          [action.team]: [
+            ...state.votes[action.team] || {},
+            {
+              shirt: action.shirt,
+              vote: action.vote += 1,
+            },
+          ],
+        },
       });
     default:
       return state;
