@@ -17,17 +17,15 @@ export const teams = (state = initialState, action) => {
         ],
       });
     case types.REGISTER_VOTE:
-      // console.log('reducer', state, action);
+      // console.log('reducer', action);
+
       return Object.assign({}, state, {
         votes: {
           ...state.votes,
-          [action.team]: [
-            ...state.votes[action.team] || {},
-            {
-              shirt: action.shirt,
-              vote: action.vote += 1,
-            },
-          ],
+          [action.team]: {
+            ...state.votes[action.team],
+            [action.shirt]: action.vote += 1,
+          },
         },
       });
     default:

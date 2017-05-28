@@ -12,30 +12,36 @@ class ShirtInnerContainer extends Component {
 
     this.state = {
       teams: teamsData[id].shirtYears[slug].shirts,
+      slug,
       id,
     };
   }
 
   render() {
+    console.log('container', this.props);
+
     return (
       <ShirtInner
         id={this.state.id}
         params={this.props.params}
         teams={this.state.teams}
+        quantVotes={this.props.quantVotes}
         registerVote={this.props.onClickVote}
       />
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('container', state);
-  return {}
+const mapStateToProps = (state, ownProps) => {
+  // console.log(state, ownProps);
+  return {
+    quantVotes: state.teams.votes[ownProps.params.id],
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
-  onClickVote: (team, shirt) => {
-    dispatch(registerVote(team, shirt))
+  onClickVote: (team, shirt, vote) => {
+    dispatch(registerVote(team, shirt, vote))
   },
 });
 
