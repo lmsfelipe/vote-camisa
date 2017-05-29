@@ -17,8 +17,6 @@ export const teams = (state = initialState, action) => {
         ],
       });
     case types.REGISTER_VOTE:
-      // console.log('reducer', action);
-
       return Object.assign({}, state, {
         votes: {
           ...state.votes,

@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
 import ShirtItem from './../ShirtItem/ShirtItem';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 export default class ShirtInner extends Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick(e) {
-    const team = e.target.getAttribute('data-team');
-    const shirt = e.target.getAttribute('data-shirt');
-    const votes = e.target.getAttribute('data-votes');
-
-    this.props.registerVote(team, shirt, votes);
-  }
-
   render() {
-    console.log('shirtInner', this.props);
-
     return (
       <div className="ShirtInner">
         {
@@ -31,15 +16,12 @@ export default class ShirtInner extends Component {
 
               <p>{item.info}</p>
 
-              <Button
-                bsStyle="info"
-                data-team={this.props.id}
-                data-shirt={item.slug}
-                data-votes={this.props.quantVotes}
-                onClick={this.onClick}
+              <Link
+                className="btn btn-primary"
+                to={`/${this.props.id}/${this.props.slug}/${item.slug}`}
               >
-                Votar nesta camisa
-              </Button>
+                Ver detalhes desta camisa
+              </Link>
             </div>
           )
         }
