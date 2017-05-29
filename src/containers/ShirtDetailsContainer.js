@@ -11,20 +11,14 @@ import './ShirtDetailsContainer.scss';
 class ShirtDetailsContainer extends Component {
   constructor(props) {
     super(props);
-    const { id, shirt, slug } = props.params;
+    const { id, slug } = props.params; // id: Time - slug: Ano
 
     this.state = {
       infoTeam: teamsData[id].shirtYears[slug].shirts,
-      shirt,
       id,
     };
 
     this.onClick = this.onClick.bind(this);
-    this.filterShirt = this.filterShirt.bind(this);
-  }
-
-  filterShirt(value) {
-    return value.slug === this.state.shirt;
   }
 
   onClick(e) {
@@ -40,7 +34,7 @@ class ShirtDetailsContainer extends Component {
     return (
       <div className="ShirtDetailsContainer">
         {
-          this.state.infoTeam.filter(this.filterShirt).map((item, i) => {
+          this.state.infoTeam.map((item, i) => {
             const votes = quantVotes[this.state.id] && quantVotes[this.state.id][item.slug] ?
               quantVotes[this.state.id][item.slug] : 0;
 
