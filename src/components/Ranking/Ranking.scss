@@ -1,0 +1,9 @@
+@import '../../sass/main';
+
+.Ranking{
+    width: 45%;
+    margin: 30px auto 0;
+    flex-flow: row wrap;
+	@include flex-box;
+    @include box-default;
+}
