@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Ranking from './../components/Ranking/Ranking';
-import { registerVote } from './../actions/teamActions';
+// import Ranking from './../components/Ranking/Ranking';
 
 class ShirtRankingContainer extends Component {
   render(){
-    const { quantVotes } = this.props;
-    console.log(quantVotes);
+    const { globalState } = this.props;
+
     return (
       <div>
-        <Ranking />
+      {console.log(globalState)}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log('container', state);
   return {
-    quantVotes: state.teams.votes,
+    globalState: state.teams,
   }
 };
 

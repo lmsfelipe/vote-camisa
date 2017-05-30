@@ -16,6 +16,7 @@ class ShirtDetailsContainer extends Component {
     this.state = {
       infoTeam: teamsData[team].shirtYears[year].shirts,
       team,
+      year,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -24,9 +25,10 @@ class ShirtDetailsContainer extends Component {
   onClick(e) {
     const team = e.target.getAttribute('data-team');
     const shirt = e.target.getAttribute('data-shirt');
+    const year = e.target.getAttribute('data-year');
     const votes = parseFloat(e.target.getAttribute('data-votes'));
 
-    this.props.onClickVote(team, shirt, votes);
+    this.props.onClickVote(team, shirt, year, votes);
   }
 
   render() {
@@ -56,6 +58,7 @@ class ShirtDetailsContainer extends Component {
                   bsStyle="info"
                   data-team={this.state.team}
                   data-shirt={item.slug}
+                  data-year={this.state.year}
                   data-votes={votes}
                   onClick={this.onClick}
                   className="ShirtDetailsContainer__button"
@@ -79,8 +82,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onClickVote: (team, shirt, vote) => {
-    dispatch(registerVote(team, shirt, vote));
+  onClickVote: (team, shirt, year, vote) => {
+    dispatch(registerVote(team, shirt, year, vote));
   },
 });
 
