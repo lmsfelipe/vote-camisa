@@ -1,7 +1,6 @@
 import * as types from './../types/teamTypes';
 
 const initialState = {
-  listTeams: [],
   votes: {},
 };
 
