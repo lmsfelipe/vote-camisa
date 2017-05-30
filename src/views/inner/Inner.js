@@ -9,30 +9,25 @@ import './Inner.scss';
 export default class InnerView extends Component {
   constructor(props) {
     super(props);
+    const { team } = props.params;
 
     this.state = {
-      id: props.params.id,
-      shirtYears: [],
+      shirtYears: teamsData[team].shirtYears,
+      team,
     };
-  }
-
-  componentDidMount() {
-    this.setState({
-      shirtYears: teamsData[this.state.id].shirtYears,
-    });
   }
 
   render() {
     return (
       <div className="InnerView">
-        <h2>{teamsData[this.state.id].name}</h2>
+        <h2>{teamsData[this.state.team].name}</h2>
         {
           Object.entries(this.state.shirtYears).map((item, i) => {
             return(
               <Link
                 key={i}
                 className="InnerView__link"
-                to={`/${teamsData[this.state.id].slug}/${item[1].slug}`}
+                to={`/${teamsData[this.state.team].slug}/${item[1].slug}`}
               >
                 <ShirtItem
                   shirtName={item[1].shirtName}

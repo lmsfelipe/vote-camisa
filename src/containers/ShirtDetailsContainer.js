@@ -11,11 +11,11 @@ import './ShirtDetailsContainer.scss';
 class ShirtDetailsContainer extends Component {
   constructor(props) {
     super(props);
-    const { id, slug } = props.params; // id: Time - slug: Ano
+    const { team, year } = props.params;
 
     this.state = {
-      infoTeam: teamsData[id].shirtYears[slug].shirts,
-      id,
+      infoTeam: teamsData[team].shirtYears[year].shirts,
+      team,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -35,8 +35,8 @@ class ShirtDetailsContainer extends Component {
       <div className="ShirtDetailsContainer">
         {
           this.state.infoTeam.map((item, i) => {
-            const votes = quantVotes[this.state.id] && quantVotes[this.state.id][item.slug] ?
-              quantVotes[this.state.id][item.slug] : 0;
+            const votes = quantVotes[this.state.team] && quantVotes[this.state.team][item.slug] ?
+              quantVotes[this.state.team][item.slug] : 0;
 
             return (
               <div key={`shirt-${i}`}>
@@ -45,6 +45,8 @@ class ShirtDetailsContainer extends Component {
                   shirtImage={item.shirtImage}
                 />
 
+                <p>{item.info}</p>
+
                 {
                   votes > 0 &&
                     <p className="ShirtDetailsContainer__votes">Esta camisa recebeu {votes > 1 ? `${votes} votos` : `${votes} voto`}</p>
@@ -52,7 +54,7 @@ class ShirtDetailsContainer extends Component {
 
                 <Button
                   bsStyle="info"
-                  data-team={this.state.id}
+                  data-team={this.state.team}
                   data-shirt={item.slug}
                   data-votes={votes}
                   onClick={this.onClick}

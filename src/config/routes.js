@@ -18,8 +18,8 @@ export default class Routes extends Component {
 		  <Router history={history}>
 		    <Route component={ApplicationLayout}>
 		      <Route path="/" component={HomeView} />
-		      <Route path="/:id" component={InnerView} />
-          <Route path="/:id/:slug" component={ShirtDetailsView} />
+		      <Route path="/:team" component={InnerView} />
+          <Route path="/:team/:year" component={ShirtDetailsView} />
 		    </Route>
 		  </Router>
 		);
