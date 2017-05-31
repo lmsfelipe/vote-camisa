@@ -5,11 +5,21 @@ import { connect } from 'react-redux';
 
 class ShirtRankingContainer extends Component {
   render(){
-    const { globalState } = this.props;
+    const { globalVote } = this.props;
+
+    let voteSorted
+
+    Object.entries(globalVote).map( (item, i) => {
+      console.log(item[1])
+      let shirt = item[1]
+      voteSorted = Object.keys(shirt).sort( (a,b) => {
+          return shirt[a]-shirt[b]
+      })
+      console.log(voteSorted)
+    })
 
     return (
       <div>
-      {console.log(globalState)}
       </div>
     )
   }
@@ -17,7 +27,7 @@ class ShirtRankingContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    globalState: state.teams,
+    globalVote: state.teams.votes,
   }
 };
 

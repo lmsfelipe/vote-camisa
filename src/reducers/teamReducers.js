@@ -12,10 +12,7 @@ export const teams = (state = initialState, action) => {
           ...state.votes,
           [action.team]: {
             ...state.votes[action.team],
-            [action.year]: {
-              ...state.votes[action.year],
-              [action.shirt]: action.vote += 1,
-            },
+            [action.shirt]: action.vote += 1,
           },
         },
       });
