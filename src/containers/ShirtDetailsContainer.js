@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
 import ShirtItem from './../components/Shirt/ShirtItem/ShirtItem';
-import { registerVote } from './../actions/teamActions';
+
+import { registerVote, sum } from './../actions/teamActions';
+import * as TeamSelectors from './../selectors/teamSelectors';
+
 import teamsData from './../json/teams';
 
 import './ShirtDetailsContainer.scss';
@@ -20,6 +23,17 @@ class ShirtDetailsContainer extends Component {
     };
 
     this.onClick = this.onClick.bind(this);
+    this.onClickSum = this.onClickSum.bind(this);
+  }
+
+  onClickSum() {
+    const { sum } = this.props;
+    let newSum = sum;
+    let updateSum = newSum += 1;
+
+    this.props.onClickSum(updateSum);
+
+    console.log('click sum', updateSum);
   }
 
   onClick(e) {
@@ -39,6 +53,8 @@ class ShirtDetailsContainer extends Component {
           this.state.infoTeam.map((item, i) => {
             const votes = quantVotes[this.state.team] && quantVotes[this.state.team][item.slug] ?
               quantVotes[this.state.team][item.slug] : 0;
+
+            // console.log('container render', quantVotes, item.slug);
 
             return (
               <div key={`shirt-${i}`}>
@@ -65,6 +81,10 @@ class ShirtDetailsContainer extends Component {
                 >
                   Votar nesta camisa
                 </Button>
+
+                <Button bsStyle="info" onClick={this.onClickSum}>
+                  Some aqui!
+                </Button>
               </div>
             )
           })
@@ -74,16 +94,17 @@ class ShirtDetailsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log('container', state);
-  return {
-    quantVotes: state.teams.votes,
-  }
-};
+const mapStateToProps = state => ({
+  quantVotes: TeamSelectors.quantVotes(state),
+  sum: TeamSelectors.sum(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   onClickVote: (team, shirt, year, vote) => {
     dispatch(registerVote(team, shirt, year, vote));
+  },
+  onClickSum: (number) => {
+    dispatch(sum(number));
   },
 });
 

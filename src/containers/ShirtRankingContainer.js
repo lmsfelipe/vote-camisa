@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class ShirtRankingContainer extends Component {
   render(){
-    const { globalVote } = this.props;
+    // const { globalVote } = this.props;
 
     return (
       <div>
