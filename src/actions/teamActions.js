@@ -5,13 +5,10 @@ export const sum = (number) => ({
   number,
 });
 
-export const registerVote = (team, shirt, year, vote) => {
-  console.log('action', vote);
-  return {
-    type: types.REGISTER_VOTE,
-    team,
-    shirt,
-    year,
-    vote,
-  };
-};
+export const registerVote = (team, shirt, year, vote) => ({
+  type: types.REGISTER_VOTE,
+  team,
+  shirt,
+  year,
+  vote,
+});

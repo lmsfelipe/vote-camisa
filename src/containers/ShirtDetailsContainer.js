@@ -41,20 +41,25 @@ class ShirtDetailsContainer extends Component {
     const shirt = e.target.getAttribute('data-shirt');
     const year = e.target.getAttribute('data-year');
     const votes = parseFloat(e.target.getAttribute('data-votes'));
+    let getVotes = votes;
+    let updateVotes = getVotes += 1;
 
-    this.props.onClickVote(team, shirt, year, votes);
+    this.props.onClickVote(team, shirt, year, updateVotes);
   }
 
   render() {
     const { quantVotes } = this.props;
     return (
       <div className="ShirtDetailsContainer">
+        <Button bsStyle="info" onClick={this.onClickSum}>
+          Some aqui!
+        </Button>
         {
           this.state.infoTeam.map((item, i) => {
-            const votes = quantVotes[this.state.team] && quantVotes[this.state.team][item.slug] ?
-              quantVotes[this.state.team][item.slug] : 0;
-
-            // console.log('container render', quantVotes, item.slug);
+            const votes = quantVotes[this.state.team] &&
+              quantVotes[this.state.team][this.state.year] &&
+              quantVotes[this.state.team][this.state.year][item.slug] ?
+                quantVotes[this.state.team][this.state.year][item.slug] : 0;
 
             return (
               <div key={`shirt-${i}`}>
@@ -81,10 +86,6 @@ class ShirtDetailsContainer extends Component {
                 >
                   Votar nesta camisa
                 </Button>
-
-                <Button bsStyle="info" onClick={this.onClickSum}>
-                  Some aqui!
-                </Button>
               </div>
             )
           })
@@ -94,10 +95,13 @@ class ShirtDetailsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  quantVotes: TeamSelectors.quantVotes(state),
-  sum: TeamSelectors.sum(state),
-});
+const mapStateToProps = state => {
+  console.log('STATE', state);
+  return {
+    quantVotes: TeamSelectors.quantVotes(state),
+    sum: TeamSelectors.sum(state),
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   onClickVote: (team, shirt, year, vote) => {
