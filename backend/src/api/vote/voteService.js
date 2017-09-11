@@ -1,4 +1,4 @@
-const Vote = require('./Vote')
+const Vote = require('./vote')
 
 Vote.methods(['get', 'post', 'put', 'delete'])
 Vote.updateOptions({ new: true, runValidators: true })
