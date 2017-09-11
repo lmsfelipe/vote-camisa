@@ -56,10 +56,11 @@ class ShirtDetailsContainer extends Component {
         </Button>
         {
           this.state.infoTeam.map((item, i) => {
-            const votes = quantVotes[this.state.team] &&
+            const votes =
+              quantVotes[this.state.team] &&
               quantVotes[this.state.team][this.state.year] &&
               quantVotes[this.state.team][this.state.year][item.slug] ?
-                quantVotes[this.state.team][this.state.year][item.slug] : 0;
+              quantVotes[this.state.team][this.state.year][item.slug] : 0;
 
             return (
               <div key={`shirt-${i}`}>
