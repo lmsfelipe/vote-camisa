@@ -7,7 +7,7 @@ module.exports = function(server) {
 	server.use('/api', router)
 
 	// VOTE ROUTES
-	const todoService = require('../api/vote/voteService')
-	todoService.register(router, '/votes')
+	const voteService = require('../api/vote/voteService')
+	voteService.register(router, '/votes')
 
 }

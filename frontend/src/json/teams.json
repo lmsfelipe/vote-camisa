@@ -1,4 +1,4 @@
-export default {
+{
 	"santos": {
 		"name": "Santos",
 		"slug": "santos",
@@ -14,14 +14,16 @@ export default {
             "shirtImage": "st-1.jpg",
             "shirtName": "Camisa A",
             "info": "Some Info A 2012",
+            "votes": 20
           },
           {
             "slug": "camisa-b-2012",
             "shirtImage": "st-2.jpg",
             "shirtName": "Camisa B",
             "info": "Some Info B 2012",
-          },
-  			],
+            "votes": 15
+          }
+  			]
       },
       "2013": {
         "slug": "2013",
@@ -33,16 +35,18 @@ export default {
             "shirtImage": "st-3.png",
             "shirtName": "Camisa A",
             "info": "Some Info 2013",
+            "votes": 0
           },
           {
             "slug": "camisa-b-2013",
             "shirtImage": "st-4.png",
             "shirtName": "Camisa B",
             "info": "Some Info 2013",
-          },
-        ],
-			},
-		},
+            "votes": 0
+          }
+        ]
+			}
+		}
 	},
 	"saoPaulo": {
 		"name": "São Paulo",
@@ -59,20 +63,23 @@ export default {
             "shirtImage": "sp-1.jpg",
             "shirtName": "Camisa A",
             "info": "Some Info 2013",
+            "votes": 0
           },
           {
             "slug": "camisa-b-2013",
             "shirtImage": "sp-2.jpg",
             "shirtName": "Camisa B",
             "info": "Some Info 2013",
+            "votes": 0
           },
           {
             "slug": "camisa-c-2013",
             "shirtImage": "sp-2.jpg",
             "shirtName": "Camisa C",
             "info": "Some Info 2013",
-          },
-        ],
+            "votes": 0
+          }
+        ]
       },
       "1996": {
         "slug": "1996",
@@ -84,8 +91,9 @@ export default {
     				"shirtImage": "sp-1.jpg",
     				"shirtName": "Camisa A",
     				"info": "Some Info",
-    			},
-        ],
+            "votes": 0
+    			}
+        ]
       },
       "2012": {
         "slug": "2012",
@@ -97,10 +105,11 @@ export default {
             "shirtImage": "sp-2.jpg",
             "shirtName": "Camisa A",
             "info": "Some Info",
-          },
-        ],
-      },
-		},
+            "votes": 0
+          }
+        ]
+      }
+		}
 	},
   "palmeiras": {
     "name": "Palmeiras",
@@ -117,9 +126,9 @@ export default {
             "shirtImage": "pl-1.jpg",
             "shirtName": "Camisa A",
             "info": "Some Info A 2012",
-            "vote": 0,
-          },
-        ],
+            "votes": 0
+          }
+        ]
       },
       "2013": {
         "slug": "2013",
@@ -131,11 +140,11 @@ export default {
             "shirtImage": "pl-2.jpg",
             "shirtName": "Camisa B",
             "info": "Some Info 2013",
-            "vote": 0,
+            "votes": 0
           }
-        ],
-      },
-    },
+        ]
+      }
+    }
   },
   "corinthians": {
     "name": "Corinthians",
@@ -152,9 +161,9 @@ export default {
             "shirtImage": "cr-1.jpg",
             "shirtName": "Camisa A",
             "info": "Some Info A 2012",
-            "vote": 0,
-          },
-        ],
+            "votes": 0
+          }
+        ]
       },
       "2013": {
         "slug": "2013",
@@ -166,10 +175,10 @@ export default {
             "shirtImage": "cr-2.jpg",
             "shirtName": "Camisa B",
             "info": "Some Info 2013",
-            "vote": 0,
+            "votes": 0
           }
-        ],
-      },
-    },
-  },
+        ]
+      }
+    }
+  }
 }
