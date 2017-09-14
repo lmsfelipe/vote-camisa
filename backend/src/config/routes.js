@@ -6,8 +6,8 @@ module.exports = function(server) {
 	const router = express.Router()
 	server.use('/api', router)
 
-	// VOTE ROUTES
-	const voteService = require('../api/vote/voteService')
-	voteService.register(router, '/votes')
+	// Team ROUTES
+	const teamService = require('../api/team/teamService')
+	teamService.register(router, '/teams')
 
 }
