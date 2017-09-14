@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
 import ShirtItem from './../components/Shirt/ShirtItem/ShirtItem';
 
-import { registerVote, sum } from './../actions/teamActions';
+import { registerVote, sum, refresh } from './../actions/teamActions';
 import * as TeamSelectors from './../selectors/teamSelectors';
 
 import teamsData from './../json/teams';
@@ -26,14 +27,16 @@ class ShirtDetailsContainer extends Component {
     this.onClickSum = this.onClickSum.bind(this);
   }
 
+  componentWillMount(){
+    this.props.refresh()
+    console.log('Data:', this.props.data)
+  }
+
   onClickSum() {
-    const { sum } = this.props;
-    let newSum = sum;
-    let updateSum = newSum += 1;
-
-    this.props.onClickSum(updateSum);
-
-    console.log('click sum', updateSum);
+    const { sum, sumTotal } = this.props
+    let newSum = parseInt(sumTotal, 10) + 1
+    sum(newSum)
+    console.log('click sum', sumTotal)
   }
 
   onClick(e) {
@@ -44,7 +47,7 @@ class ShirtDetailsContainer extends Component {
     let getVotes = votes;
     let updateVotes = getVotes += 1;
 
-    this.props.onClickVote(team, shirt, year, updateVotes);
+    this.props.registerVote(team, shirt, year, updateVotes);
   }
 
   render() {
@@ -100,18 +103,16 @@ const mapStateToProps = state => {
   console.log('STATE', state);
   return {
     quantVotes: TeamSelectors.quantVotes(state),
-    sum: TeamSelectors.sum(state),
+    sumTotal: TeamSelectors.sum(state),
+    data: state.teams.data
   }
 };
 
-const mapDispatchToProps = dispatch => ({
-  onClickVote: (team, shirt, year, vote) => {
-    dispatch(registerVote(team, shirt, year, vote));
-  },
-  onClickSum: (number) => {
-    dispatch(sum(number));
-  },
-});
+const mapDispatchToProps = dispatch => bindActionCreators({
+  registerVote,
+  sum,
+  refresh
+}, dispatch);
 
 export default connect(
   mapStateToProps,

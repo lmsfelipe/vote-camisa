@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import TeamItem from './../TeamItem/TeamItem';
 import './TeamList.scss';
 import teamsData from './../../../json/teams';

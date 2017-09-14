@@ -1,4 +1,14 @@
+import axios from 'axios'
 import * as types from './../types/teamTypes';
+
+const URL = 'http://localhost:3003/api/teams'
+
+export const refresh = () => {
+  return (dispatch) => {
+    axios.get(URL)
+      .then(resp => dispatch({ type: types.REFRESH, payload: resp.data }))
+  }
+}
 
 export const sum = (number) => ({
   type: types.SUM,

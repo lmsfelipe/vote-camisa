@@ -2,11 +2,16 @@ import * as types from './../types/teamTypes';
 
 const initialState = {
   votes: {},
-  sum: null,
+  sum: 0,
+  data: ''
 };
 
 export const teams = (state = initialState, action) => {
   switch (action.type) {
+
+    case 'REFRESH':
+      return { ...state, data: action.payload }
+
     case types.SUM:
       return Object.assign({}, state, {
         sum: action.number,
