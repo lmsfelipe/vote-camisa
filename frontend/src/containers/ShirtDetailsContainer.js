@@ -29,7 +29,6 @@ class ShirtDetailsContainer extends Component {
 
   componentWillMount(){
     this.props.refresh()
-    console.log('Data:', this.props.data)
   }
 
   onClickSum() {

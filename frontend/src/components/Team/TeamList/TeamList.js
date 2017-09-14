@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import TeamItem from './../TeamItem/TeamItem';
 import './TeamList.scss';
 import teamsData from './../../../json/teams';
+import TeamListContainer from './../../../containers/TeamListContainer'
 
 export default class TeamList extends Component{
 	render(){
-		return(
-			<div className="TeamList">
+    return(
+      <div className="TeamList">
+        <TeamListContainer />
 				{
 					Object.entries(teamsData).map((value, index) => {
 						return(
