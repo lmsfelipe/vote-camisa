@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
-import TeamList from './../../components/Team/TeamList/TeamList';
-import ShirtRankingView from './../inner/ShirtRankingView';
+import TeamListView from './TeamListView'
 
 export default class HomeView extends Component {
   render() {
     return (
       <div className="HomeView">
-        <TeamList />
-        <ShirtRankingView />
+        <TeamListView />
       </div>
     )
   }

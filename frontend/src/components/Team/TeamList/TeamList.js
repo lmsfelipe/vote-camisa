@@ -2,26 +2,32 @@ import React, { Component } from 'react';
 
 import TeamItem from './../TeamItem/TeamItem';
 import './TeamList.scss';
-import teamsData from './../../../json/teams';
-import TeamListContainer from './../../../containers/TeamListContainer'
 
 export default class TeamList extends Component{
-	render(){
+  constructor(props){
+    super(props)
+
+    this.teamListItems = this.teamListItems.bind(this)
+  }
+
+  teamListItems() {
+    const { teams } = this.props
+    return Array.from(teams).map((team, i) => {
+      return(
+        <TeamItem
+          key={i}
+          teamLogo={team.image}
+          slug={team.slug}
+       />
+      )
+    })
+  }
+
+  render(){
     return(
       <div className="TeamList">
-        <TeamListContainer />
-				{
-					Object.entries(teamsData).map((value, index) => {
-						return(
-							<TeamItem
-								key={index}
-						    teamLogo={value[1].teamImage}
-						    slug={value[1].slug}
-					  	/>
-						)
-					})
-				}
-			</div>
-		)
-	}
+        { this.teamListItems() }
+      </div>
+    )
+  }
 }
