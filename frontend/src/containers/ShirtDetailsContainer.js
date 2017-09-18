@@ -10,8 +10,6 @@ import * as TeamSelectors from './../selectors/teamSelectors';
 
 import teamsData from './../json/teams';
 
-import './ShirtDetailsContainer.scss';
-
 class ShirtDetailsContainer extends Component {
   constructor(props) {
     super(props);

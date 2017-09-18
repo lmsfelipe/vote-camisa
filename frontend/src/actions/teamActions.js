@@ -3,10 +3,10 @@ import * as types from './../types/teamTypes';
 
 const URL = 'http://localhost:3003/api/teams'
 
-export const refresh = () => {
+export const getApiData = () => {
   return (dispatch) => {
     axios.get(URL)
-      .then(resp => dispatch({ type: types.REFRESH, payload: resp.data }))
+      .then(resp => dispatch({ type: types.GET_API_DATA, payload: resp.data }))
   }
 }
 

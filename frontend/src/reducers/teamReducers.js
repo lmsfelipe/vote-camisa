@@ -9,7 +9,7 @@ const initialState = {
 export const teams = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'REFRESH':
+    case 'GET_API_DATA':
       return { ...state, data: action.payload }
 
     case types.SUM:
