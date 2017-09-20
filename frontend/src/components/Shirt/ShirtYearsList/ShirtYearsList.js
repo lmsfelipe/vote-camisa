@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
+
 import ShirtItem from './../ShirtItem/ShirtItem'
 
 export default class ShirtYearsList extends Component {
@@ -18,16 +20,22 @@ export default class ShirtYearsList extends Component {
 
   shirtYearsList(){
     const { data } = this.props
-    const slugFilter = Array.from(data).filter(this.filterName)
+    const { team } = this.props.params
+    const slugFilter = data.filter(this.filterName)
 
-    return slugFilter.map(team => {
-      return team.shirtYears.map((shirts, i) => {
+    return slugFilter.map(teamInfo => {
+      return teamInfo.shirtYears.map((shirts, i) => {
         return(
-          <ShirtItem
+          <Link
             key={i}
-            shirtName={shirts.name}
-            shirtImage={shirts.image}
-          />
+            to={`/${team}/${shirts.slug}`}
+          >
+            <ShirtItem
+              key={i}
+              shirtName={shirts.name}
+              shirtImage={shirts.image}
+            />
+          </Link>
         )
       })
     })

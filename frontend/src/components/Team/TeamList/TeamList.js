@@ -12,7 +12,7 @@ export default class TeamList extends Component{
 
   teamListItems() {
     const { data } = this.props
-    return Array.from(data).map((team, i) => {
+    return data.map((team, i) => {
       return(
         <TeamItem
           key={i}

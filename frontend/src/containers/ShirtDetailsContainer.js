@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 import ShirtItem from './../components/Shirt/ShirtItem/ShirtItem';
 
-import { registerVote, sum, refresh } from './../actions/teamActions';
+import { registerVote, sum } from './../actions/teamActions';
 import * as TeamSelectors from './../selectors/teamSelectors';
 
 import teamsData from './../json/teams';
@@ -23,10 +23,6 @@ class ShirtDetailsContainer extends Component {
 
     this.onClick = this.onClick.bind(this);
     this.onClickSum = this.onClickSum.bind(this);
-  }
-
-  componentWillMount(){
-    this.props.refresh()
   }
 
   onClickSum() {
@@ -107,8 +103,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   registerVote,
-  sum,
-  refresh
+  sum
 }, dispatch);
 
 export default connect(

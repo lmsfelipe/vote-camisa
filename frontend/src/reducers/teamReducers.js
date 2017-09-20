@@ -3,7 +3,7 @@ import * as types from './../types/teamTypes';
 const initialState = {
   votes: {},
   sum: 0,
-  data: ''
+  data: []
 };
 
 export const teams = (state = initialState, action) => {
