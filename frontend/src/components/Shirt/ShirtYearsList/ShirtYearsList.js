@@ -7,12 +7,12 @@ export default class ShirtYearsList extends Component {
   constructor(props){
     super(props)
 
-    this.filterName = this.filterName.bind(this)
+    this.filterTeam = this.filterTeam.bind(this)
     this.shirtYearsList = this.shirtYearsList.bind(this)
   }
 
-  filterName(obj){
-    let { team } = this.props.params
+  filterTeam(obj){
+    const { team } = this.props.params
     if(obj.slug === team){
       return true
     }
@@ -21,9 +21,9 @@ export default class ShirtYearsList extends Component {
   shirtYearsList(){
     const { data } = this.props
     const { team } = this.props.params
-    const slugFilter = data.filter(this.filterName)
+    const slugFiltered = data.filter(this.filterTeam)
 
-    return slugFilter.map(teamInfo => {
+    return slugFiltered.map(teamInfo => {
       return teamInfo.shirtYears.map((shirts, i) => {
         return(
           <Link

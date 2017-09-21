@@ -1,10 +1,9 @@
-import * as types from './../types/teamTypes';
-
 const initialState = {
   votes: {},
-  sum: 0,
+  team: '',
+  year: '',
   data: []
-};
+}
 
 export const teams = (state = initialState, action) => {
   switch (action.type) {
@@ -12,12 +11,7 @@ export const teams = (state = initialState, action) => {
     case 'GET_API_DATA':
       return { ...state, data: action.payload }
 
-    case types.SUM:
-      return Object.assign({}, state, {
-        sum: action.number,
-      });
-
-    case types.REGISTER_VOTE:
+    case 'REGISTER_VOTE':
       const newState = Object.keys({...state.votes[action.team]}).length !== 0 ?
         state.votes[action.team][action.year] : {};
 
@@ -36,4 +30,4 @@ export const teams = (state = initialState, action) => {
     default:
       return state;
   }
-};
+}

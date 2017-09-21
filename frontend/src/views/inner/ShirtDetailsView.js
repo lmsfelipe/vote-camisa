@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ShirtDetailsContainer from './../../containers/ShirtDetailsContainer';
+import ShirtVoteContainer from './../../containers/ShirtVoteContainer';
 
 export default class ShirtDetailsView extends Component {
   render() {
     return (
-      <ShirtDetailsContainer params={this.props.params} />
+      <ShirtVoteContainer params={this.props.params} />
     )
   }
 }
