@@ -10,4 +10,8 @@ module.exports = function(server) {
 	const teamService = require('../api/team/teamService')
 	teamService.register(router, '/teams')
 
+	// ShirtYear ROUTES
+	const yearService = require('../api/shirtYear/yearService')
+	yearService.register(router, '/years')
+
 }
