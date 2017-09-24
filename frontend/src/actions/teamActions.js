@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const teamsURL = 'http://localhost:3003/api/teams'
+const teamsURL      = 'http://localhost:3003/api/teams'
 const shirtYearsURL = 'http://localhost:3003/api/shirtyears'
-const shirtsURL = 'http://localhost:3003/api/shirts'
+const shirtsURL     = 'http://localhost:3003/api/shirts'
 
 
 export const getTeams = () => {
@@ -26,10 +26,11 @@ export const getShirts = (team, year) => {
   }
 }
 
-export const registerVote = (team, shirt, year, vote) => ({
-  type: 'REGISTER_VOTE',
-  team,
-  shirt,
-  year,
-  vote,
-});
+export const registerVote = (shirt, team, year) => {
+  shirt.votes ++
+  return dispatch => {
+    axios.put(`${shirtsURL}/${shirt._id}`, { ...shirt, votes: shirt.votes })
+      .then(resp => dispatch(getShirts(team, year)) )
+  }
+}
+

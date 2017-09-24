@@ -17,22 +17,6 @@ export const voteCamisa = (state = initialState, action) => {
     case 'GET_SHIRTS':
       return { ...state, shirts: action.payload }
 
-    case 'REGISTER_VOTE':
-      const newState = Object.keys({...state.votes[action.team]}).length !== 0 ?
-        state.votes[action.team][action.year] : {};
-
-      return Object.assign({}, state, {
-        votes: {
-          ...state.votes,
-          [action.team]: {
-            ...state.votes[action.team],
-            [action.year]: {
-              ...newState,
-              [action.shirt]: action.vote,
-            },
-          },
-        },
-      });
     default:
       return state;
   }

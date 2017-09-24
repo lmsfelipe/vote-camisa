@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
-import ShirtItem from './../ShirtItem/ShirtItem'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export default class ShirtVoteList extends Component {
+import { registerVote } from './../../../actions/teamActions'
+
+import ShirtItem from './../ShirtItem/ShirtItem'
+import { Button } from 'react-bootstrap'
+
+class ShirtVoteList extends Component {
   constructor(props){
     super(props)
 
@@ -9,7 +15,7 @@ export default class ShirtVoteList extends Component {
   }
 
   shirtVoteList(){
-    const { shirts } = this.props
+    const { shirts, team, year } = this.props
 
     return shirts.map((shirt, i) => {
       return(
@@ -19,6 +25,14 @@ export default class ShirtVoteList extends Component {
             shirtImage={shirt.image}
           />
           <p>{shirt.votes}</p>
+
+          <Button
+            bsStyle="success"
+            onClick={ () => this.props.registerVote(shirt, team, year) }
+          >
+            Votar nesta camisa
+          </Button>
+
         </div>
       )
     })
@@ -30,3 +44,10 @@ export default class ShirtVoteList extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({ shirts: state.voteCamisa.shirts })
+const mapsDispatchToProps = dispatch => bindActionCreators({
+  registerVote
+}, dispatch)
+
+export default connect(mapStateToProps, mapsDispatchToProps)(ShirtVoteList)
