@@ -1,6 +1,6 @@
-const shirtYear = require('./shirtYear')
+const ShirtYear = require('./shirtYear')
 
-shirtYear.methods(['get', 'post', 'put', 'delete'])
-shirtYear.updateOptions({ new: true, runValidators: true })
+ShirtYear.methods(['get', 'post', 'put', 'delete'])
+ShirtYear.updateOptions({ new: true, runValidators: true })
 
-module.exports = shirtYear
+module.exports = ShirtYear

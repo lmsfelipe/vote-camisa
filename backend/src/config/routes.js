@@ -6,12 +6,16 @@ module.exports = function(server) {
 	const router = express.Router()
 	server.use('/api', router)
 
-	// Team ROUTES
+	// Teams ROUTES
 	const teamService = require('../api/team/teamService')
 	teamService.register(router, '/teams')
 
-	// ShirtYear ROUTES
-	const yearService = require('../api/shirtYear/shirtYearService')
-	yearService.register(router, '/shirtyears')
+	// ShirtYears ROUTES
+	const shirtYearService = require('../api/shirtYear/shirtYearService')
+	shirtYearService.register(router, '/shirtyears')
+
+	// Shirts ROUTES
+	const shirtService = require('../api/shirt/shirtService')
+	shirtService.register(router, '/shirts')
 
 }

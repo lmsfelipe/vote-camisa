@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { getShirtYears } from './../actions/teamActions'
-import ShirtYearsList from './../components/Shirt/ShirtYearsList/ShirtYearsList'
+import ShirtYearsList from './../components/Shirt/ShirtYearsList'
 
 class ShirtYearsContainer extends Component {
 

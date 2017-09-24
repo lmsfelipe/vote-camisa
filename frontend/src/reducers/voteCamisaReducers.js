@@ -1,7 +1,8 @@
 const initialState = {
   votes: {},
   teams: [],
-  shirtYears: []
+  shirtYears: [],
+  shirts: []
 }
 
 export const voteCamisa = (state = initialState, action) => {
@@ -12,6 +13,9 @@ export const voteCamisa = (state = initialState, action) => {
 
     case 'GET_SHIRT_YEARS':
       return { ...state, shirtYears: action.payload }
+
+    case 'GET_SHIRTS':
+      return { ...state, shirts: action.payload }
 
     case 'REGISTER_VOTE':
       const newState = Object.keys({...state.votes[action.team]}).length !== 0 ?
