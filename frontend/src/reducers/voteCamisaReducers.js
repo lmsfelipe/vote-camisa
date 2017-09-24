@@ -1,15 +1,17 @@
 const initialState = {
   votes: {},
-  team: '',
-  year: '',
-  data: []
+  teams: [],
+  shirtYears: []
 }
 
-export const teams = (state = initialState, action) => {
+export const voteCamisa = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'GET_API_DATA':
-      return { ...state, data: action.payload }
+    case 'GET_TEAMS':
+      return { ...state, teams: action.payload }
+
+    case 'GET_SHIRT_YEARS':
+      return { ...state, shirtYears: action.payload }
 
     case 'REGISTER_VOTE':
       const newState = Object.keys({...state.votes[action.team]}).length !== 0 ?

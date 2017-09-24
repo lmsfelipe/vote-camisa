@@ -2,30 +2,31 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getApiData } from './../actions/teamActions'
+import { getShirtYears } from './../actions/teamActions'
 import ShirtYearsList from './../components/Shirt/ShirtYearsList/ShirtYearsList'
 
 class ShirtYearsContainer extends Component {
 
   componentDidMount(){
-    this.props.getApiData()
+    const { team } = this.props.params
+    this.props.getShirtYears(team)
   }
 
   render(){
     return(
       <div>
         <ShirtYearsList
-          params={this.props.params}
-          data={this.props.data}
+          shirtYears={this.props.shirtYears}
+          team={this.props.params.team}
         />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({ data: state.teams.data })
+const mapStateToProps = state => ({ shirtYears: state.voteCamisa.shirtYears })
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getApiData
+  getShirtYears
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShirtYearsContainer)

@@ -3,28 +3,28 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import TeamList from './../components/Team/TeamList/TeamList'
-import { getApiData } from './../actions/teamActions'
+import { getTeams } from './../actions/teamActions'
 
 class TeamListContainer extends Component {
 
   componentDidMount(){
-    this.props.getApiData()
+    this.props.getTeams()
   }
 
   render() {
     return (
       <div>
         <TeamList
-          data={this.props.data}
+          teams={this.props.teams}
         />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({ data: state.teams.data })
+const mapStateToProps = state => ({ teams: state.voteCamisa.teams })
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getApiData
+  getTeams
 }, dispatch)
 
 export default connect(

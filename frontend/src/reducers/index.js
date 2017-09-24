@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { teams } from './teamReducers';
+import { voteCamisa } from './voteCamisaReducers';
 
-const teamApp = combineReducers({
-  teams,
+const voteCamisaApp = combineReducers({
+  voteCamisa,
 });
 
-export default teamApp;
+export default voteCamisaApp;

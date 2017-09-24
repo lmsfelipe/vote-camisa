@@ -11,8 +11,8 @@ export default class TeamList extends Component{
   }
 
   teamListItems() {
-    const { data } = this.props
-    return data.map((team, i) => {
+    const { teams } = this.props
+    return teams.map((team, i) => {
       return(
         <TeamItem
           key={i}
