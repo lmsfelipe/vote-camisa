@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-import ShirtItem from './../components/Shirt/ShirtItem/ShirtItem';
+import ShirtItem from './../components/Shirt/ShirtItem';
 
 import { registerVote, sum } from './../actions/teamActions';
 import * as TeamSelectors from './../selectors/teamSelectors';

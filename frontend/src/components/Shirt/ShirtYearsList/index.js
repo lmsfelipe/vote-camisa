@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import ShirtItem from './../ShirtItem/ShirtItem'
+import ShirtItem from './../ShirtItem'
 
 export default class ShirtYearsList extends Component {
   constructor(props){
@@ -10,8 +10,14 @@ export default class ShirtYearsList extends Component {
     this.shirtYearsList = this.shirtYearsList.bind(this)
   }
 
+  componentDidMount(){
+    const { team } = this.props.params
+    this.props.getShirtYears(team)
+  }
+
   shirtYearsList(){
-    const { shirtYears, team } = this.props
+    const { team } = this.props.params
+    const { shirtYears } = this.props
 
     return shirtYears.map((shirts, i) => {
       return(

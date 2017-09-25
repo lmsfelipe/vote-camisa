@@ -1,5 +1,4 @@
 const initialState = {
-  votes: {},
   teams: [],
   shirtYears: [],
   shirts: []

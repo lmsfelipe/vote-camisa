@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import TeamItem from './../TeamItem/TeamItem';
+import TeamItem from './../TeamItem';
 import './TeamList.scss';
 
 export default class TeamList extends Component{
@@ -8,6 +8,10 @@ export default class TeamList extends Component{
     super(props)
 
     this.teamListItems = this.teamListItems.bind(this)
+  }
+
+  componentDidMount(){
+    this.props.getTeams()
   }
 
   teamListItems() {
