@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 import ShirtItem from './../components/Shirt/ShirtItem';
 
-import { registerVote, sum } from './../actions/teamActions';
+import { registerVote, sum } from './../actions';
 import * as TeamSelectors from './../selectors/teamSelectors';
 
 import teamsData from './../json/teams';

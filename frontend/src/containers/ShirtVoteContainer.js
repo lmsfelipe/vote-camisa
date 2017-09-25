@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { getShirts, registerVote } from './../actions/teamActions'
+import { getShirts, registerVote } from './../actions'
 import ShirtVoteList from './../components/Shirt/ShirtVoteList'
 
 const mapStateToProps = state => ({ shirts: state.voteCamisa.shirts })
