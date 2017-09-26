@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 
 import Routes from './config/routes';
-import teamApp from './reducers/';
+import voteCamisaApp from './reducers/';
 
 import './index.scss';
 
 let store = createStore(
-  teamApp,
+  voteCamisaApp,
   applyMiddleware(thunk)
 )
 
