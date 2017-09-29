@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import { getShirts, registerVote } from './../actions'
 import ShirtVoteList from './../components/Shirt/ShirtVoteList'

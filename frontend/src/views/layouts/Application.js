@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Header from './../../components/Header/Header';
+import Header from './../../components/Header/Header'
+import ShirtRankingView from './../inner/ShirtRankingView'
 
 export default class ApplicationLayout extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class ApplicationLayout extends Component {
       <div className="ApplicationLayout">
         <Header />
         {this.props.children}
+        <ShirtRankingView />
       </div>
     )
   }

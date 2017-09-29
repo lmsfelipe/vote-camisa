@@ -1,7 +1,8 @@
 const initialState = {
   teams: [],
   shirtYears: [],
-  shirts: []
+  shirts: [],
+  ranking: []
 }
 
 export const voteCamisa = (state = initialState, action) => {
@@ -15,6 +16,9 @@ export const voteCamisa = (state = initialState, action) => {
 
     case 'GET_SHIRTS':
       return { ...state, shirts: action.payload }
+
+    case 'GET_RANKING':
+      return { ...state, ranking: action.payload }
 
     default:
       return state;

@@ -12,6 +12,7 @@ export default class ShirtItem extends Component {
 				}
 
 				<img src={require(`./images/${this.props.shirtImage}`)} alt="Camisa" />
+        <h3>{this.props.votes}</h3>
 			</div>
 		)
 	}

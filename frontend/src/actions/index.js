@@ -26,6 +26,13 @@ export const getShirts = (team, year) => {
   }
 }
 
+export const getRanking = () => {
+  return (dispatch) => {
+    axios.get(`${shirtsURL}?sort=-votes`)
+      .then(resp => dispatch({ type: 'GET_RANKING', payload: resp.data }))
+  }
+}
+
 export const registerVote = (shirt, team, year) => {
   shirt.votes ++
   return dispatch => {
@@ -33,4 +40,3 @@ export const registerVote = (shirt, team, year) => {
       .then(resp => dispatch(getShirts(team, year)) )
   }
 }
-
