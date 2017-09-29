@@ -38,5 +38,6 @@ export const registerVote = (shirt, team, year) => {
   return dispatch => {
     axios.put(`${shirtsURL}/${shirt._id}`, { ...shirt, votes: shirt.votes })
       .then(resp => dispatch(getShirts(team, year)) )
+      .then(resp => dispatch(getRanking()) )
   }
 }
